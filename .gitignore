@@ -2,6 +2,7 @@
 /node_modules
 /.vscode
 /mongoDB
+/.ssh
 
 # Files Excluded
 seeds.js
