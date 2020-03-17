@@ -1,8 +1,14 @@
+// env variables
+const PORT = process.env.PORT || 8080,
+    IP = process.env.IP || "localhost";
+
 
 //imports
 const express = require("express"),
     // @ts-ignore
     app = express(),
+    http = require('http'),
+    https = require('https'),
     bodyParser = require('body-parser'),
     mongoose = require("mongoose"),
     passport = require("passport"),
@@ -66,7 +72,12 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
-app.listen(3000, function () {
-    console.log("connected")
+// @ts-ignore
+http.createServer(app).listen(PORT, IP, () => {
+    console.log("connected http")
+});
+// @ts-ignore
+https.createServer(app).listen(PORT, IP, () => {
+    console.log("connected https")
 });
 
