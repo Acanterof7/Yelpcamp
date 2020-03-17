@@ -1,0 +1,53 @@
+.centerForm {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#createTitle {
+    text-align: center;
+    margin: 25px;
+}
+
+.capture {
+    display: flex;
+    justify-content: space-between;
+}
+
+.figure, .figure-img {
+    width: 100%;
+}
+
+.container, .border {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+#commentButton {
+    margin: 1em
+}
+
+.commentContent {
+    width: 98%;
+    align-self: center;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.buttonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttonDiv * {
+    margin: 0.2rem;
+}
+
+#alert {
+    margin-top: 5rem;
+}

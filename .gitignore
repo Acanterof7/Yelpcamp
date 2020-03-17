@@ -1,0 +1,8 @@
+#  Folders exclude
+/node_modules
+/.vscode
+/mongoDB
+
+# Files Excluded
+seeds.js
+package-lock.json

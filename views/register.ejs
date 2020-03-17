@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="col-sm-12" id="createTitle">Sing up</h1>
+        <div class="centerForm">
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="Submit" value="Sign up">
+                </div>
+            </form>
+            <a href="/campgrounds" class="btn btn-outline-primary btn-block">Go back</a>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>
