@@ -1,6 +1,5 @@
 // env variables
-const PORT = process.env.PORT || 8080,
-    IP = process.env.IP || "localhost";
+const PORT = process.env.PORT || 8080;
 
 
 //imports
@@ -72,8 +71,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
-// @ts-ignore
-app.listen(PORT, IP, () => {
+app.listen(PORT, () => {
     console.log("connected https")
 });
 
