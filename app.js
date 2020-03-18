@@ -73,7 +73,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
 // @ts-ignore
-https.createServer(app).listen(PORT, IP, () => {
+app.listen(PORT, IP, () => {
     console.log("connected https")
 });
 
