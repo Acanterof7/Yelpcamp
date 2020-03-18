@@ -70,7 +70,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
 // @ts-ignore
-app.listen(process.env.PORT, process.env.IP, () => {
+app.listen(3000, () => {
     console.log("connected");
 });
 
