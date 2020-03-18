@@ -55,7 +55,7 @@ app.use(flash());
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://127.0.0.1:27017/Yelpcamp", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://YelpAdmin:dkKtAYG6lAARjuA4@cluster0-fwsk3.mongodb.net/Yelpcamp?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 // adding user info to all pages
 app.use((req, res, next) => {
