@@ -7,3 +7,4 @@
 # Files Excluded
 seeds.js
 package-lock.json
+.env

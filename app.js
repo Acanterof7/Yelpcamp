@@ -1,7 +1,3 @@
-// env variables
-const PORT = process.env.PORT || 8080;
-
-
 //imports
 const express = require("express"),
     // @ts-ignore
@@ -14,7 +10,8 @@ const express = require("express"),
     localStrategy = require("passport-local"),
     User = require("./models/user"),
     methodOverride = require("method-override"),
-    flash = require("connect-flash");
+    flash = require("connect-flash"),
+    dotenv = require("dotenv");
 
 // @ts-ignore
 //seedsDB = require("./seeds");
@@ -43,6 +40,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 // sapp configuration
+dotenv.config();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,7 +52,7 @@ app.use(flash());
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://YelpAdmin:dkKtAYG6lAARjuA4@cluster0-fwsk3.mongodb.net/Yelpcamp?retryWrites=true&w=majority", { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
 
 // adding user info to all pages
 app.use((req, res, next) => {
@@ -71,7 +69,8 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
-app.listen(PORT, () => {
-    console.log("connected https")
+// @ts-ignore
+app.listen(process.env.PORT, process.env.IP, () => {
+    console.log("connected");
 });
 
