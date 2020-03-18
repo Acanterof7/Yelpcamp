@@ -1,3 +1,5 @@
+
+
 //imports
 const express = require("express"),
     // @ts-ignore
@@ -11,11 +13,7 @@ const express = require("express"),
     User = require("./models/user"),
     methodOverride = require("method-override"),
     flash = require("connect-flash"),
-    dotenv = require("dotenv");
-
-// @ts-ignore
-//seedsDB = require("./seeds");
-//seedsDB();
+    dotenv = require("dotenv").config();
 
 // Routes
 const commentRoutes = require("./routes/comments"),
@@ -40,7 +38,6 @@ passport.deserializeUser(User.deserializeUser());
 
 
 // sapp configuration
-dotenv.config();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -48,11 +45,14 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 app.use(flash());
 
+// global var
+
+
 // mongoose connection
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://YelpAdmin:dkKtAYG6lAARjuA4@cluster0-fwsk3.mongodb.net/Yelpcamp?retryWrites=true&w=majority", { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
 
 // adding user info to all pages
 app.use((req, res, next) => {
@@ -70,7 +70,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 // run app
 // @ts-ignore
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("connected");
 });
 
